@@ -377,7 +377,7 @@ dialog[open]{animation:pop .3s ease}
  </div>
 </section>
 <dialog id="lb"><figure class="ph" id="lbfig"></figure><p id="lbcap"></p><form method="dialog"><button class="btn">Fermer</button></form></dialog>
-
+ 
 <!-- ============ URGENCE ============ -->
 <section class="alt" id="urgence">
  <div class="wrap">
@@ -511,7 +511,7 @@ document.querySelectorAll("[data-svc]").forEach(a=>a.addEventListener("click",()
 
 /* Galerie + filtres + agrandissement */
 const gal=document.getElementById("gal"),fl=document.getElementById("filters"),lb=document.getElementById("lb");
-function card(g,i){return `<button type="button" style="animation-delay:${i*70}ms" data-t="${g.t}" data-f="${g.f}"><figure class="ph"><img src="assets/images/${g.f}" alt="${g.t}" width="600" height="400" loading="lazy" onerror="this.remove()"></figure></button>`}
+function card(g,i){return `<button type="button" style="animation-delay:${i*0}ms" data-t="${g.t}" data-f="${g.f}"><figure class="ph"><img src="assets/images/${g.f}" alt="${g.t}" width="600" height="400" loading="lazy" onerror="this.remove()"></figure></button>`}
 function draw(cat){gal.innerHTML=GALLERY.filter(g=>!cat||g.c===cat).map((g,i)=>card(g,i)).join("");
  gal.querySelectorAll("button").forEach(b=>b.onclick=()=>{document.getElementById("lbfig").innerHTML=`<img src="assets/images/${b.dataset.f}" alt="${b.dataset.t}" onerror="this.remove()">`;document.getElementById("lbcap").textContent=b.dataset.t;lb.showModal()})}
 const cats=["",...new Set(GALLERY.map(g=>g.c))];
@@ -583,3 +583,7 @@ document.querySelectorAll("form.f").forEach(wire);
 </script>
 </body>
 </html>
+
+.emerg {
+    white-space: nowrap;
+}
